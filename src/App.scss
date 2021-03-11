@@ -1,0 +1,134 @@
+.App {
+  padding: 10px;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+header {
+  max-width: 500px;
+  margin: 0 auto;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    > * {
+      flex: 1 1 100px;
+      text-align: center;
+    }
+  }
+
+  button {
+    border: 0;
+    padding: 0;
+    background: none;
+    color: #fff;
+    font-size: 1.5em;
+    outline: none;
+  }
+
+  h3 {
+    text-align: center;
+  }
+}
+
+.cards-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 120px 10px 40px;
+  max-width: 500px;
+  margin: auto;
+  z-index: -1;
+
+  div {
+    flex: 1 1 30%;
+    justify-content: space-evenly;
+    margin: 5px;
+    position: relative;
+    font-size: 8vh;
+    box-sizing: border-box;
+    box-shadow: inset 3px -23px 40px -15px rgba(255, 255, 255, 0.6);
+
+    // glass
+    background: linear-gradient(319deg, rgba(255,255,255,0.018644957983193322) 77%, rgba(255, 255, 255, 0.43601190476190477) 100%);
+    backdrop-filter: blur( 4.5px );
+    -webkit-backdrop-filter: blur( 4.5px );
+    border-radius: 10px;
+
+    &.open {
+      color: #e88a8b;
+      box-shadow: inset 3px -23px 40px -15px rgba(232, 138, 139, 0.6);
+    }
+
+    &.matched {
+      color: #80c66f;
+      box-shadow: inset 3px -23px 40px -15px rgba(128, 198, 111, 0.6);
+    }
+  }
+  svg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .flip {
+    // animation
+    transform: rotateY(0);
+    animation-name: flipInY;
+    backface-visibility: visible;
+    animation-duration: .75s;
+  }
+}
+
+.congrats {
+  display: none;
+  text-align: center;
+}
+
+.game-won {
+  .cards-container {
+    display: none;
+  }
+
+  .congrats {
+    display: block;
+  }
+}
+
+@keyframes flipInY {
+	from {
+		transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+		animation-timing-function: ease-in;
+		opacity: 0;
+	}
+
+	40% {
+		transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+		animation-timing-function: ease-in;
+	}
+
+	60% {
+		transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+		opacity: 1;
+	}
+
+	80% {
+		transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+	}
+
+	to {
+		transform: perspective(400px);
+	}
+}
