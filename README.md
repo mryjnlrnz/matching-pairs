@@ -1,3 +1,10 @@
+# Memory Game - Matching Pairs
+I built this simple game app to utilize my knowledge on ReactJS.
+
+## [Demo](https://mryjnlrnz.github.io/matching-pairs)
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
